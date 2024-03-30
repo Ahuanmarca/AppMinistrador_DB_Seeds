@@ -1,0 +1,5 @@
+id,iban,holder,bank,currency,description
+1,ES12345678901234567890,AppMinistrador S.A.,"Banco Bilbao Vizcaya Argentaria, S.A.",Euro,Cobros y pagos de comunidad de fincas administradas
+2,ES98765432109876543210,AppMinistrador S.A.,"Banco Bilbao Vizcaya Argentaria, S.A.",Euro,Compra y venta de inmuebles
+3,ES24681012141618202224,AppMinistrador S.A.,Banco Santander S.A.,Euro,Cuenta secundaria 1
+4,ES13579111315171921232,AppMinistrador S.A.,Banco Santander S.A.,Euro,Cuenta secundaria 2

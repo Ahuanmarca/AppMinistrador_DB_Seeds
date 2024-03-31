@@ -81,9 +81,12 @@ FOREIGN KEY (owner_dni) REFERENCES people(dni);
 
 
 CREATE TABLE neighbors_to_properties(
+    id SERIAL,
     property_id INTEGER,
     neighbor_dni VARCHAR(55),
-    PRIMARY KEY (property_id, neighbor_dni)
+    starting_date DATE,
+    ending_date DATE,
+    PRIMARY KEY (id, property_id, neighbor_dni)
 );
 ALTER TABLE neighbors_to_properties ADD CONSTRAINT fk_property_id
 FOREIGN KEY (property_id) REFERENCES properties(id);

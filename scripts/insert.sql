@@ -110,11 +110,15 @@ FROM import.master_properties;
 
 INSERT INTO neighbors_to_properties(
     property_id,
-    neighbor_dni
+    neighbor_dni,
+    starting_date,
+    ending_date
 )
 SELECT
     import.master_people.residence_id :: INTEGER,
-    import.master_people.dni
+    import.master_people.dni,
+    import.master_people.starting_date :: DATE,
+    import.master_people.ending_date :: DATE
 FROM import.master_people
 WHERE import.master_people.residence_id IS NOT NULL;
 

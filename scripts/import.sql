@@ -29,7 +29,9 @@ CREATE TABLE import.master_people(
     hash TEXT,
     validated TEXT,
     sys_admin TEXT,
-    portrait_url TEXT
+    portrait_url TEXT,
+    starting_date TEXT,
+    ending_date TEXT
 );
 
 

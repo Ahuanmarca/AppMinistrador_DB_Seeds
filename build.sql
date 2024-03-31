@@ -29,7 +29,9 @@ CREATE TABLE import.master_people(
     hash TEXT,
     validated TEXT,
     sys_admin TEXT,
-    portrait_url TEXT
+    portrait_url TEXT,
+    starting_date TEXT,
+    ending_date TEXT
 );
 
 
@@ -208,9 +210,12 @@ FOREIGN KEY (owner_dni) REFERENCES people(dni);
 
 
 CREATE TABLE neighbors_to_properties(
+    id SERIAL,
     property_id INTEGER,
     neighbor_dni VARCHAR(55),
-    PRIMARY KEY (property_id, neighbor_dni)
+    starting_date DATE,
+    ending_date DATE,
+    PRIMARY KEY (id, property_id, neighbor_dni)
 );
 ALTER TABLE neighbors_to_properties ADD CONSTRAINT fk_property_id
 FOREIGN KEY (property_id) REFERENCES properties(id);
@@ -413,11 +418,15 @@ FROM import.master_properties;
 
 INSERT INTO neighbors_to_properties(
     property_id,
-    neighbor_dni
+    neighbor_dni,
+    starting_date,
+    ending_date
 )
 SELECT
     import.master_people.residence_id :: INTEGER,
-    import.master_people.dni
+    import.master_people.dni,
+    import.master_people.starting_date :: DATE,
+    import.master_people.ending_date :: DATE
 FROM import.master_people
 WHERE import.master_people.residence_id IS NOT NULL;
 

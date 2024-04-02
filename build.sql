@@ -1,16 +1,25 @@
--- Uncomment DROP TABLE statements if you won't dropdb / createdb on Makefile
+DROP TABLE IF EXISTS import.master_people;
+DROP TABLE IF EXISTS import.master_buildings;
+DROP TABLE IF EXISTS import.master_properties;
+DROP TABLE IF EXISTS import.master_providers;
+DROP TABLE IF EXISTS import.master_incidences;
+DROP TABLE IF EXISTS import.master_announces;
+DROP TABLE IF EXISTS import.master_bank_accounts;
+DROP TABLE IF EXISTS import.master_banking_transactions;
+DROP SCHEMA IF EXISTS import;
 
--- DROP TABLE IF EXISTS import.master_people;
--- DROP TABLE IF EXISTS import.master_buildings;
--- DROP TABLE IF EXISTS import.master_properties;
--- DROP TABLE IF EXISTS import.master_providers;
--- DROP TABLE IF EXISTS import.master_incidences;
--- DROP TABLE IF EXISTS import.master_announces;
--- DROP TABLE IF EXISTS import.master_bank_accounts;
--- DROP TABLE IF EXISTS import.master_banking_transactions;
--- DROP SCHEMA IF EXISTS import;
+DROP TABLE IF EXISTS banking_transactions CASCADE;
+DROP TABLE IF EXISTS bank_accounts CASCADE;
+DROP TABLE IF EXISTS neighbors_to_properties CASCADE;
+DROP TABLE IF EXISTS owners_to_properties CASCADE;
+DROP TABLE IF EXISTS incidences CASCADE;
+DROP TABLE IF EXISTS properties CASCADE;
+DROP TABLE IF EXISTS announces CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS buildings CASCADE;
+DROP TABLE IF EXISTS providers CASCADE;
+DROP TABLE IF EXISTS people CASCADE;
 CREATE SCHEMA import;
-
 
 CREATE TABLE import.master_people(
     id TEXT,
@@ -127,21 +136,6 @@ COPY import.master_incidences FROM '/Users/renzobelon/Desktop/repositories/AppMi
 COPY import.master_announces FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/announces.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_bank_accounts FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/bank_accounts.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_banking_transactions FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/banking_transactions.csv' WITH DELIMITER ',' HEADER CSV;
--- Uncomment DROP TABLE statements if you won't dropdb / createdb on Makefile
-
--- DROP TABLE IF EXISTS banking_transactions CASCADE;
--- DROP TABLE IF EXISTS bank_accounts CASCADE;
--- DROP TABLE IF EXISTS neighbors_to_properties CASCADE;
--- DROP TABLE IF EXISTS owners_to_properties CASCADE;
--- DROP TABLE IF EXISTS incidences CASCADE;
--- DROP TABLE IF EXISTS properties CASCADE;
--- DROP TABLE IF EXISTS announces CASCADE;
--- DROP TABLE IF EXISTS users CASCADE;
--- DROP TABLE IF EXISTS buildings CASCADE;
--- DROP TABLE IF EXISTS providers CASCADE;
--- DROP TABLE IF EXISTS people CASCADE;
-
-
 CREATE TABLE people(
     id SERIAL,
     forename VARCHAR(255) NOT NULL,

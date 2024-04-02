@@ -10,24 +10,24 @@ BANK_ACCOUNTS='${CURDIR}/data/bank_accounts.csv'
 BANKING_TRANSACTIONS='${CURDIR}/data/banking_transactions.csv'
 
 SCRIPTS=${CURDIR}/scripts
+DROP=$(SCRIPTS)/drop.sql
 IMPORT=$(SCRIPTS)/import.sql
 NORMALIZE=$(SCRIPTS)/normalize.sql
 INSERT=$(SCRIPTS)/insert.sql
 BUILD=${CURDIR}/build.sql
 
-all: insert
+DUMP=${CURDIR}/dump
+
+all: dump
 	@psql $(DB) -f $(BUILD)
 
-dropdb:
-	@dropdb $(DB)
-
-createdb: dropdb
-	@createdb $(DB)
-
-master: createdb
-	@cat $(IMPORT) > $(BUILD)
+master:
+	@cat $(DROP) > $(BUILD)
 
 import: master
+	@cat $(IMPORT) >> $(BUILD)
+
+copy: import
 	@echo "COPY import.master_people FROM $(PEOPLE) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 	@echo "COPY import.master_buildings FROM $(BUILDINGS) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 	@echo "COPY import.master_properties FROM $(PROPERTIES) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
@@ -37,11 +37,39 @@ import: master
 	@echo "COPY import.master_bank_accounts FROM $(BANK_ACCOUNTS) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 	@echo "COPY import.master_banking_transactions FROM $(BANKING_TRANSACTIONS) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 
-normalize: import
+normalize: copy
 	@cat $(NORMALIZE) >> $(BUILD)
 
 insert: normalize
 	@cat $(INSERT) >> $(BUILD)
 
+dump: insert
+	@pg_dump -U $(USER) -d $(DB) -t people -f $(DUMP)/01.sql
+	@pg_dump -U $(USER) -d $(DB) -t providers -f $(DUMP)/02.sql 
+	@pg_dump -U $(USER) -d $(DB) -t buildings -f $(DUMP)/03.sql
+	@pg_dump -U $(USER) -d $(DB) -t users -f $(DUMP)/04.sql
+	@pg_dump -U $(USER) -d $(DB) -t announces -f $(DUMP)/05.sql
+	@pg_dump -U $(USER) -d $(DB) -t properties -f $(DUMP)/06.sql
+	@pg_dump -U $(USER) -d $(DB) -t incidences -f $(DUMP)/07.sql
+	@pg_dump -U $(USER) -d $(DB) -t owners_to_properties -f $(DUMP)/08.sql
+	@pg_dump -U $(USER) -d $(DB) -t neighbors_to_properties -f $(DUMP)/09.sql
+	@pg_dump -U $(USER) -d $(DB) -t bank_accounts -f $(DUMP)/10.sql
+	@pg_dump -U $(USER) -d $(DB) -t banking_transactions -f $(DUMP)/11.sql
+
+replicate:
+	@psql $(NEON_DATABASE_OWNER) -f $(DUMP)/drop.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/01.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/02.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/03.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/04.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/05.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/06.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/07.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/08.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/09.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/10.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/11.sql
+
 clean:
 	@rm -rf $(BUILD)
+	@rm $(DUMP)/[0-9][0-9].sql

@@ -7,7 +7,7 @@ PROVIDERS='${CURDIR}/data/providers.csv'
 INCIDENCES='${CURDIR}/data/incidences.csv'
 ANNOUNCES='${CURDIR}/data/announces.csv'
 BANK_ACCOUNTS='${CURDIR}/data/bank_accounts.csv'
-BANKING_TRANSACTIONS='${CURDIR}/data/banking_transactions.csv'
+BANKING_TRANSACTIONS='${CURDIR}/data/banking_transactions_building_1.csv'
 
 SCRIPTS=${CURDIR}/scripts
 DROP=$(SCRIPTS)/drop.sql

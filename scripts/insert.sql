@@ -225,7 +225,8 @@ INSERT INTO banking_transactions(
     category,
     date,
     time,
-    amount
+    amount,
+    building_id
 )
 SELECT
     import.master_banking_transactions.id :: INTEGER,
@@ -235,5 +236,6 @@ SELECT
     import.master_banking_transactions.category,
     import.master_banking_transactions.date :: DATE,
     import.master_banking_transactions.time :: TIME,
-    replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2)
+    replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2),
+    import.master_banking_transactions.building_id :: INTEGER
 FROM import.master_banking_transactions;

@@ -136,19 +136,19 @@ ALTER TABLE ONLY public.properties
 
 
 --
--- Name: properties dk_owner_dni; Type: FK CONSTRAINT; Schema: public; Owner: renzobelon
---
-
-ALTER TABLE ONLY public.properties
-    ADD CONSTRAINT dk_owner_dni FOREIGN KEY (owner_dni) REFERENCES public.people(dni);
-
-
---
 -- Name: properties fk_building_id; Type: FK CONSTRAINT; Schema: public; Owner: renzobelon
 --
 
 ALTER TABLE ONLY public.properties
     ADD CONSTRAINT fk_building_id FOREIGN KEY (building_id) REFERENCES public.buildings(id);
+
+
+--
+-- Name: properties fk_owner_dni; Type: FK CONSTRAINT; Schema: public; Owner: renzobelon
+--
+
+ALTER TABLE ONLY public.properties
+    ADD CONSTRAINT fk_owner_dni FOREIGN KEY (owner_dni) REFERENCES public.people(dni);
 
 
 --

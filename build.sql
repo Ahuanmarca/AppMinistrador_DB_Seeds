@@ -126,7 +126,8 @@ CREATE TABLE import.master_banking_transactions(
     category TEXT,
     date TEXT,
     time TEXT,
-    amount TEXT
+    amount TEXT,
+    building_id TEXT
 );
 COPY import.master_people FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/people.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_buildings FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/buildings.csv' WITH DELIMITER ',' HEADER CSV;
@@ -135,7 +136,7 @@ COPY import.master_providers FROM '/Users/renzobelon/Desktop/repositories/AppMin
 COPY import.master_incidences FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/incidences.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_announces FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/announces.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_bank_accounts FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/bank_accounts.csv' WITH DELIMITER ',' HEADER CSV;
-COPY import.master_banking_transactions FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/banking_transactions.csv' WITH DELIMITER ',' HEADER CSV;
+COPY import.master_banking_transactions FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/banking_transactions_building_1.csv' WITH DELIMITER ',' HEADER CSV;
 CREATE TABLE people(
     id SERIAL,
     forename VARCHAR(255) NOT NULL,
@@ -199,7 +200,7 @@ CREATE TABLE properties(
 );
 ALTER TABLE properties ADD CONSTRAINT fk_building_id
 FOREIGN KEY (building_id) REFERENCES buildings(id);
-ALTER TABLE properties ADD CONSTRAINT dk_owner_dni
+ALTER TABLE properties ADD CONSTRAINT fk_owner_dni
 FOREIGN KEY (owner_dni) REFERENCES people(dni);
 
 
@@ -294,12 +295,15 @@ CREATE TABLE banking_transactions(
     date DATE,
     time TIME,
     amount DECIMAL(10, 2),
+    building_id INTEGER,
     PRIMARY KEY (id)
 );
 ALTER TABLE banking_transactions ADD CONSTRAINT fk_account_id
 FOREIGN KEY (account_id) REFERENCES bank_accounts(id);
 ALTER TABLE banking_transactions ADD CONSTRAINT fk_property_id
 FOREIGN KEY (property_id) REFERENCES properties(id);
+ALTER TABLE banking_transactions ADD CONSTRAINT fk_building_id
+FOREIGN KEY (building_id) REFERENCES buildings(id);
 TRUNCATE TABLE
     banking_transactions,
     announces,
@@ -527,7 +531,8 @@ INSERT INTO banking_transactions(
     category,
     date,
     time,
-    amount
+    amount,
+    building_id
 )
 SELECT
     import.master_banking_transactions.id :: INTEGER,
@@ -537,5 +542,6 @@ SELECT
     import.master_banking_transactions.category,
     import.master_banking_transactions.date :: DATE,
     import.master_banking_transactions.time :: TIME,
-    replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2)
+    replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2),
+    import.master_banking_transactions.building_id :: INTEGER
 FROM import.master_banking_transactions;

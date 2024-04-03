@@ -105,5 +105,6 @@ CREATE TABLE import.master_banking_transactions(
     category TEXT,
     date TEXT,
     time TEXT,
-    amount TEXT
+    amount TEXT,
+    building_id TEXT
 );

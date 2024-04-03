@@ -61,7 +61,7 @@ CREATE TABLE properties(
 );
 ALTER TABLE properties ADD CONSTRAINT fk_building_id
 FOREIGN KEY (building_id) REFERENCES buildings(id);
-ALTER TABLE properties ADD CONSTRAINT dk_owner_dni
+ALTER TABLE properties ADD CONSTRAINT fk_owner_dni
 FOREIGN KEY (owner_dni) REFERENCES people(dni);
 
 
@@ -156,9 +156,12 @@ CREATE TABLE banking_transactions(
     date DATE,
     time TIME,
     amount DECIMAL(10, 2),
+    building_id INTEGER,
     PRIMARY KEY (id)
 );
 ALTER TABLE banking_transactions ADD CONSTRAINT fk_account_id
 FOREIGN KEY (account_id) REFERENCES bank_accounts(id);
 ALTER TABLE banking_transactions ADD CONSTRAINT fk_property_id
 FOREIGN KEY (property_id) REFERENCES properties(id);
+ALTER TABLE banking_transactions ADD CONSTRAINT fk_building_id
+FOREIGN KEY (building_id) REFERENCES buildings(id);

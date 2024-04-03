@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS import.master_bank_accounts;
 DROP TABLE IF EXISTS import.master_banking_transactions;
 DROP SCHEMA IF EXISTS import;
 
+DROP TABLE IF EXISTS community_fees CASCADE;
 DROP TABLE IF EXISTS banking_transactions CASCADE;
 DROP TABLE IF EXISTS bank_accounts CASCADE;
 DROP TABLE IF EXISTS neighbors_to_properties CASCADE;
@@ -127,7 +128,9 @@ CREATE TABLE import.master_banking_transactions(
     date TEXT,
     time TEXT,
     amount TEXT,
-    building_id TEXT
+    building_id TEXT,
+    property_due TEXT,
+    due_date TEXT
 );
 COPY import.master_people FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/people.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_buildings FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/buildings.csv' WITH DELIMITER ',' HEADER CSV;
@@ -304,6 +307,21 @@ ALTER TABLE banking_transactions ADD CONSTRAINT fk_property_id
 FOREIGN KEY (property_id) REFERENCES properties(id);
 ALTER TABLE banking_transactions ADD CONSTRAINT fk_building_id
 FOREIGN KEY (building_id) REFERENCES buildings(id);
+
+
+CREATE TABLE community_fees(
+    id SERIAL,
+    property_id INTEGER,
+    description TEXT,
+    building_id INTEGER,
+    property_due DECIMAL(10, 2),
+    due_date DATE,
+    PRIMARY KEY (id)
+);
+ALTER TABLE community_fees ADD CONSTRAINT fk_property_id
+FOREIGN KEY (property_id) REFERENCES properties(id);
+ALTER TABLE community_fees ADD CONSTRAINT fk_building_id
+FOREIGN KEY (building_id) REFERENCES buildings(id);
 TRUNCATE TABLE
     banking_transactions,
     announces,
@@ -315,7 +333,8 @@ TRUNCATE TABLE
     users,
     people,
     providers,
-    bank_accounts;
+    bank_accounts,
+    community_fees;
 
 INSERT INTO people(
     id,
@@ -545,3 +564,20 @@ SELECT
     replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2),
     import.master_banking_transactions.building_id :: INTEGER
 FROM import.master_banking_transactions;
+
+
+INSERT INTO community_fees(
+    property_id,
+    description,
+    building_id,
+    property_due,
+    due_date
+)
+SELECT
+    import.master_banking_transactions.property_id :: INTEGER,
+    import.master_banking_transactions.description,
+    import.master_banking_transactions.building_id :: INTEGER,
+    replace(import.master_banking_transactions.property_due, ',', '') :: DECIMAL(10, 2),
+    import.master_banking_transactions.due_date :: DATE
+FROM import.master_banking_transactions
+WHERE import.master_banking_transactions.due_date IS NOT NULL;

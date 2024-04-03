@@ -9,7 +9,8 @@ TRUNCATE TABLE
     users,
     people,
     providers,
-    bank_accounts;
+    bank_accounts,
+    community_fees;
 
 INSERT INTO people(
     id,
@@ -239,3 +240,20 @@ SELECT
     replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2),
     import.master_banking_transactions.building_id :: INTEGER
 FROM import.master_banking_transactions;
+
+
+INSERT INTO community_fees(
+    property_id,
+    description,
+    building_id,
+    property_due,
+    due_date
+)
+SELECT
+    import.master_banking_transactions.property_id :: INTEGER,
+    import.master_banking_transactions.description,
+    import.master_banking_transactions.building_id :: INTEGER,
+    replace(import.master_banking_transactions.property_due, ',', '') :: DECIMAL(10, 2),
+    import.master_banking_transactions.due_date :: DATE
+FROM import.master_banking_transactions
+WHERE import.master_banking_transactions.due_date IS NOT NULL;

@@ -165,3 +165,18 @@ ALTER TABLE banking_transactions ADD CONSTRAINT fk_property_id
 FOREIGN KEY (property_id) REFERENCES properties(id);
 ALTER TABLE banking_transactions ADD CONSTRAINT fk_building_id
 FOREIGN KEY (building_id) REFERENCES buildings(id);
+
+
+CREATE TABLE community_fees(
+    id SERIAL,
+    property_id INTEGER,
+    description TEXT,
+    building_id INTEGER,
+    property_due DECIMAL(10, 2),
+    due_date DATE,
+    PRIMARY KEY (id)
+);
+ALTER TABLE community_fees ADD CONSTRAINT fk_property_id
+FOREIGN KEY (property_id) REFERENCES properties(id);
+ALTER TABLE community_fees ADD CONSTRAINT fk_building_id
+FOREIGN KEY (building_id) REFERENCES buildings(id);

@@ -106,5 +106,7 @@ CREATE TABLE import.master_banking_transactions(
     date TEXT,
     time TEXT,
     amount TEXT,
-    building_id TEXT
+    building_id TEXT,
+    property_due TEXT,
+    due_date TEXT
 );

@@ -55,6 +55,7 @@ dump: insert
 	@pg_dump -U $(USER) -d $(DB) -t neighbors_to_properties -f $(DUMP)/09.sql
 	@pg_dump -U $(USER) -d $(DB) -t bank_accounts -f $(DUMP)/10.sql
 	@pg_dump -U $(USER) -d $(DB) -t banking_transactions -f $(DUMP)/11.sql
+	@pg_dump -U $(USER) -d $(DB) -t community_fees -f $(DUMP)/12.sql
 
 replicate:
 	@psql $(NEON_DATABASE_OWNER) -f $(DUMP)/drop.sql
@@ -69,6 +70,7 @@ replicate:
 	@psql $(NEON_USERNAME) -f $(DUMP)/09.sql
 	@psql $(NEON_USERNAME) -f $(DUMP)/10.sql
 	@psql $(NEON_USERNAME) -f $(DUMP)/11.sql
+	@psql $(NEON_USERNAME) -f $(DUMP)/12.sql
 
 clean:
 	@rm -rf $(BUILD)

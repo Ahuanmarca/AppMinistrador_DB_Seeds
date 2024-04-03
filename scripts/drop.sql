@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS import.master_bank_accounts;
 DROP TABLE IF EXISTS import.master_banking_transactions;
 DROP SCHEMA IF EXISTS import;
 
+DROP TABLE IF EXISTS community_fees CASCADE;
 DROP TABLE IF EXISTS banking_transactions CASCADE;
 DROP TABLE IF EXISTS bank_accounts CASCADE;
 DROP TABLE IF EXISTS neighbors_to_properties CASCADE;

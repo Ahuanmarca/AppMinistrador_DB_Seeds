@@ -29,6 +29,6 @@ Please note that the tables on the public schema are not yet truly normalized.
 
 ## Entity Relationship Diagram (ERD)
 
-![Entity Relationship Diagram](./snapshots/AppMinistradorDB_v1.2.png)
+![Entity Relationship Diagram](./snapshots/AppMinistradorDB_v1.3.png)
 
 You can also see the current version of the ERD here: https://dbdiagram.io/d/AppMinistrador-65fdfbadae072629cebf5127

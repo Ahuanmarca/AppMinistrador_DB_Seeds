@@ -81,7 +81,10 @@ CREATE TABLE import.master_providers(
     category TEXT,
     phone_code TEXT,
     phone_number TEXT,
-    email TEXT
+    email TEXT,
+    avg_review TEXT,
+    review_count TEXT,
+    image_url TEXT
 );
 
 
@@ -240,6 +243,9 @@ CREATE TABLE providers(
     phone_code VARCHAR(55) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
+    avg_review DECIMAL(10, 2),
+    review_count INTEGER,
+    image_url TEXT,
     PRIMARY KEY (id)
 );
 
@@ -465,7 +471,10 @@ INSERT INTO providers(
     category,
     phone_code,
     phone_number,
-    email
+    email,
+    avg_review,
+    review_count,
+    image_url
 )
 SELECT
     import.master_providers.id :: INTEGER,
@@ -474,7 +483,10 @@ SELECT
     import.master_providers.category,
     import.master_providers.phone_code,
     import.master_providers.phone_number,
-    import.master_providers.email
+    import.master_providers.email,
+    replace(import.master_providers.avg_review, ',', '') :: DECIMAL(10, 2),
+    import.master_providers.review_count :: INTEGER,
+    import.master_providers.image_url
 FROM import.master_providers;
 
 

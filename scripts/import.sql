@@ -59,7 +59,10 @@ CREATE TABLE import.master_providers(
     category TEXT,
     phone_code TEXT,
     phone_number TEXT,
-    email TEXT
+    email TEXT,
+    avg_review TEXT,
+    review_count TEXT,
+    image_url TEXT
 );
 
 

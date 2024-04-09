@@ -141,7 +141,10 @@ INSERT INTO providers(
     category,
     phone_code,
     phone_number,
-    email
+    email,
+    avg_review,
+    review_count,
+    image_url
 )
 SELECT
     import.master_providers.id :: INTEGER,
@@ -150,7 +153,10 @@ SELECT
     import.master_providers.category,
     import.master_providers.phone_code,
     import.master_providers.phone_number,
-    import.master_providers.email
+    import.master_providers.email,
+    replace(import.master_providers.avg_review, ',', '') :: DECIMAL(10, 2),
+    import.master_providers.review_count :: INTEGER,
+    import.master_providers.image_url
 FROM import.master_providers;
 
 

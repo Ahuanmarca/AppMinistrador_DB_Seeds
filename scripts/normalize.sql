@@ -98,6 +98,9 @@ CREATE TABLE providers(
     phone_code VARCHAR(55) NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
+    avg_review DECIMAL(10, 2),
+    review_count INTEGER,
+    image_url TEXT,
     PRIMARY KEY (id)
 );
 

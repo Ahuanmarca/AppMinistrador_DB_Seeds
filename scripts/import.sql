@@ -76,7 +76,8 @@ CREATE TABLE import.master_incidences(
     provider_id TEXT,
     date TEXT,
     time TEXT,
-    status TEXT
+    status TEXT,
+    category TEXT
 );
 
 

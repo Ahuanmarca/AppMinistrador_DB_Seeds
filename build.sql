@@ -98,7 +98,8 @@ CREATE TABLE import.master_incidences(
     provider_id TEXT,
     date TEXT,
     time TEXT,
-    status TEXT
+    status TEXT,
+    category TEXT
 );
 
 
@@ -261,6 +262,7 @@ CREATE TABLE incidences(
     date DATE,
     time TIME,
     status VARCHAR(55),
+    category VARCHAR(55),
     PRIMARY KEY (id)
 );
 ALTER TABLE incidences ADD CONSTRAINT fk_user_dni
@@ -500,7 +502,8 @@ INSERT INTO incidences(
     provider_id,
     date,
     time,
-    status
+    status,
+    category
 )
 SELECT
     import.master_incidences.id :: INTEGER,
@@ -512,7 +515,8 @@ SELECT
     import.master_incidences.provider_id :: INTEGER,
     import.master_incidences.date :: DATE,
     import.master_incidences.time :: TIME,
-    import.master_incidences.status
+    import.master_incidences.status,
+    import.master_incidences.category
 FROM import.master_incidences
     INNER JOIN users
     ON import.master_incidences.user_dni = users.person_dni;

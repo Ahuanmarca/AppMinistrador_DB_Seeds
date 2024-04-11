@@ -116,6 +116,7 @@ CREATE TABLE incidences(
     date DATE,
     time TIME,
     status VARCHAR(55),
+    category VARCHAR(55),
     PRIMARY KEY (id)
 );
 ALTER TABLE incidences ADD CONSTRAINT fk_user_dni

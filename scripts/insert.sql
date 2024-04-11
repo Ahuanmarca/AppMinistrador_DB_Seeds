@@ -170,7 +170,8 @@ INSERT INTO incidences(
     provider_id,
     date,
     time,
-    status
+    status,
+    category
 )
 SELECT
     import.master_incidences.id :: INTEGER,
@@ -182,7 +183,8 @@ SELECT
     import.master_incidences.provider_id :: INTEGER,
     import.master_incidences.date :: DATE,
     import.master_incidences.time :: TIME,
-    import.master_incidences.status
+    import.master_incidences.status,
+    import.master_incidences.category
 FROM import.master_incidences
     INNER JOIN users
     ON import.master_incidences.user_dni = users.person_dni;

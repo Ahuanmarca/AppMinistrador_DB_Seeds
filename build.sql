@@ -144,6 +144,7 @@ COPY import.master_incidences FROM '/Users/renzobelon/Desktop/repositories/AppMi
 COPY import.master_announces FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/announces.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_bank_accounts FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/bank_accounts.csv' WITH DELIMITER ',' HEADER CSV;
 COPY import.master_banking_transactions FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/banking_transactions_building_1.csv' WITH DELIMITER ',' HEADER CSV;
+COPY import.master_banking_transactions FROM '/Users/renzobelon/Desktop/repositories/AppMinistrador/AppMinistrador_DBSeeds/data/banking_transactions_building_2.csv' WITH DELIMITER ',' HEADER CSV;
 CREATE TABLE people(
     id SERIAL,
     forename VARCHAR(255) NOT NULL,

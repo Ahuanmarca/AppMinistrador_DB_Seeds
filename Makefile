@@ -7,7 +7,8 @@ PROVIDERS='${CURDIR}/data/providers.csv'
 INCIDENCES='${CURDIR}/data/incidences.csv'
 ANNOUNCES='${CURDIR}/data/announces.csv'
 BANK_ACCOUNTS='${CURDIR}/data/bank_accounts.csv'
-BANKING_TRANSACTIONS='${CURDIR}/data/banking_transactions_building_1.csv'
+BANKING_TRANSACTIONS_1='${CURDIR}/data/banking_transactions_building_1.csv'
+BANKING_TRANSACTIONS_2='${CURDIR}/data/banking_transactions_building_2.csv'
 
 SCRIPTS=${CURDIR}/scripts
 DROP=$(SCRIPTS)/drop.sql
@@ -35,7 +36,8 @@ copy: import
 	@echo "COPY import.master_incidences FROM $(INCIDENCES) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 	@echo "COPY import.master_announces FROM $(ANNOUNCES) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 	@echo "COPY import.master_bank_accounts FROM $(BANK_ACCOUNTS) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
-	@echo "COPY import.master_banking_transactions FROM $(BANKING_TRANSACTIONS) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
+	@echo "COPY import.master_banking_transactions FROM $(BANKING_TRANSACTIONS_1) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
+	@echo "COPY import.master_banking_transactions FROM $(BANKING_TRANSACTIONS_2) WITH DELIMITER ',' HEADER CSV;" >> $(BUILD)
 
 normalize: copy
 	@cat $(NORMALIZE) >> $(BUILD)

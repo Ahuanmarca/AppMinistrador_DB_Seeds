@@ -1,11 +1,11 @@
 id,address_type,street_address,number,district,postal_code,locality,province,country,admin_dni,president_dni,build_year,floors,elevators,parking_slots,image_url
-1,Calle,Dr. Sumsi,12,Ensanche,46005,Valencia,Valencia,España,59128374D,55921386C,1998,4,0,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379316/AppMinistrador/buildings/ut1xn3fy9s2m40x4au0v.jpg
-2,Avenida,al Vedat,110,El Vedat,46900,Torrent,Valencia,España,59128374D,93204137H,2004,6,1,32,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/i7pfzg8naudhugpvfnjf.jpg
-3,Calle,Reina Na Maria,7,Ensanche,46006,Valencia,Valencia,España,59128374D,11155577Y,2000,6,1,24,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379319/AppMinistrador/buildings/q91ez32dl5poabxer3lp.jpg
-4,Calle,Francesc Cubells,18,Poblats Marítims,46011,Valencia,Valencia,España,59128374D,73291043U,2014,8,1,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379316/AppMinistrador/buildings/ubl0ztmubjl80ngucnmk.jpg
-5,Avenida,General Avilés,79,Campanar,46015,Valencia,Valencia,España,59128374D,11222712B,2016,16,2,64,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379316/AppMinistrador/buildings/ogyhbu4qu344fjgyfxmf.jpg
-6,Calle,Músic Belando,15,Benimaclet,46020,Valencia,Valencia,España,93094857W,11109874H,2002,12,1,32,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/n9dh1x89tvw7kuontysv.jpg
-7,Carretera,Llíria,99,La Granja,46100,Burjassot,Valencia,España,93094857W,16852244F,1994,6,1,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/rrp1po5qat2r9zpjubii.jpg
-8,Calle,Sant Josep,17,El Barrio del Creu,46200,Paiporta,Valencia,España,93094857W,61999991V,1980,4,0,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/nlgwlu1cye9o7at1zueg.jpg
-9,Calle,Azorín,12,Parc Central,46901,Torrent,Valencia,España,93094857W,11000222Y,1999,6,1,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/nui1odk2vwkswtdwuthl.jpg
-10,Calle,Joan Baptista Peset,42,La Vallesa,46980,Paterna,Valencia,España,93094857W,72934798Q,2005,8,1,32,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379319/AppMinistrador/buildings/wh1mmrf73uss82zfgfuy.png
+1,Calle,Dr. Sumsi,12,Campanar,46005,Valencia,Valencia,España,59128374D,55921386C,1998,4,0,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379316/AppMinistrador/buildings/ut1xn3fy9s2m40x4au0v.jpg
+2,Avenida,al Vedat,110,Libertad,46900,Torrent,Valencia,España,59128374D,93204137H,2004,6,1,32,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/i7pfzg8naudhugpvfnjf.jpg
+3,Calle,Reina Na Maria,7,Campanar,46006,Valencia,Valencia,España,59128374D,11155577Y,2000,6,1,24,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379319/AppMinistrador/buildings/q91ez32dl5poabxer3lp.jpg
+4,Calle,Francesc Cubells,18,Campanar,46011,Valencia,Valencia,España,59128374D,73291043U,2014,8,1,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379316/AppMinistrador/buildings/ubl0ztmubjl80ngucnmk.jpg
+5,Avenida,General Avilés,79,Empalme,46015,Burjassot,Valencia,España,59128374D,11222712B,2016,16,2,64,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379316/AppMinistrador/buildings/ogyhbu4qu344fjgyfxmf.jpg
+6,Calle,Músic Belando,15,Campanar,46020,Valencia,Valencia,España,93094857W,11109874H,2002,12,1,32,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/n9dh1x89tvw7kuontysv.jpg
+7,Carretera,Llíria,99,Empalme,46100,Burjassot,Valencia,España,93094857W,16852244F,1994,6,1,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/rrp1po5qat2r9zpjubii.jpg
+8,Calle,Sant Josep,17,Libertad,46200,Torrent,Valencia,España,93094857W,61999991V,1980,4,0,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/nlgwlu1cye9o7at1zueg.jpg
+9,Calle,Azorín,12,Libertad,46901,Torrent,Valencia,España,93094857W,11000222Y,1999,6,1,0,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379317/AppMinistrador/buildings/nui1odk2vwkswtdwuthl.jpg
+10,Calle,Joan Baptista Peset,42,Empalme,46980,Burjassot,Valencia,España,93094857W,72934798Q,2005,8,1,32,https://res.cloudinary.com/dlz0pxdtz/image/upload/v1711379319/AppMinistrador/buildings/wh1mmrf73uss82zfgfuy.png

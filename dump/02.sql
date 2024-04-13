@@ -101,7 +101,7 @@ COPY public.providers (id, title, description, category, phone_code, phone_numbe
 -- Name: providers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.providers_id_seq', 1, false);
+SELECT pg_catalog.setval('public.providers_id_seq', 21, true);
 
 
 --

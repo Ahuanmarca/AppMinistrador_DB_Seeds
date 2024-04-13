@@ -35,6 +35,9 @@ SELECT
     import.master_people.dni
 FROM import.master_people;
 
+SELECT
+    setval('people_id_seq', (SELECT max(id) FROM people) + 1);
+
 
 INSERT INTO users(
     person_dni,
@@ -92,6 +95,9 @@ SELECT
     import.master_buildings.image_url
 FROM import.master_buildings;
 
+SELECT
+    setval('buildings_id_seq', (SELECT max(id) FROM buildings) + 1);
+
 
 INSERT INTO properties(
     id,
@@ -107,6 +113,9 @@ SELECT
     import.master_properties.door,
     import.master_properties.owner_dni
 FROM import.master_properties;
+
+SELECT
+    setval('properties_id_seq', (SELECT max(id) FROM properties) + 1);
 
 
 INSERT INTO neighbors_to_properties(
@@ -159,6 +168,9 @@ SELECT
     import.master_providers.image_url
 FROM import.master_providers;
 
+SELECT
+    setval('providers_id_seq', (SELECT max(id) FROM providers) + 1);
+
 
 INSERT INTO incidences(
     id,
@@ -189,6 +201,9 @@ FROM import.master_incidences
     INNER JOIN users
     ON import.master_incidences.user_dni = users.person_dni;
 
+SELECT
+    setval('incidences_id_seq', (SELECT max(id) FROM incidences) + 1);
+
 
 INSERT INTO announces(
     id,
@@ -207,6 +222,9 @@ SELECT
     import.master_announces.time :: TIME
 FROM import.master_announces;
 
+SELECT
+    setval('announces_id_seq', (SELECT max(id) FROM announces) + 1);
+
 
 INSERT INTO bank_accounts(
     id,
@@ -224,6 +242,9 @@ SELECT
     import.master_bank_accounts.currency,
     import.master_bank_accounts.description
 FROM import.master_bank_accounts;
+
+SELECT
+    setval('bank_accounts_id_seq', (SELECT max(id) FROM bank_accounts) + 1);
 
 
 INSERT INTO banking_transactions(
@@ -248,6 +269,9 @@ SELECT
     replace(import.master_banking_transactions.amount, ',', '') :: DECIMAL(10, 2),
     import.master_banking_transactions.building_id :: INTEGER
 FROM import.master_banking_transactions;
+
+SELECT
+    setval('banking_transactions_id_seq', (SELECT max(id) FROM banking_transactions) + 1);
 
 
 INSERT INTO community_fees(

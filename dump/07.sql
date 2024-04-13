@@ -102,7 +102,7 @@ COPY public.incidences (id, title, description, image_url, user_dni, building_id
 -- Name: incidences_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.incidences_id_seq', 1, false);
+SELECT pg_catalog.setval('public.incidences_id_seq', 21, true);
 
 
 --

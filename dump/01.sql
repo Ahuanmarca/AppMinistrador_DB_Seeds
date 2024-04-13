@@ -190,7 +190,7 @@ COPY public.people (id, forename, surname, second_surname, email, phone_code, ph
 -- Name: people_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.people_id_seq', 1, false);
+SELECT pg_catalog.setval('public.people_id_seq', 111, true);
 
 
 --

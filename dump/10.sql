@@ -81,7 +81,7 @@ COPY public.bank_accounts (id, iban, holder, bank, currency, description) FROM s
 -- Name: bank_accounts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.bank_accounts_id_seq', 1, false);
+SELECT pg_catalog.setval('public.bank_accounts_id_seq', 5, true);
 
 
 --

@@ -124,7 +124,7 @@ COPY public.properties (id, building_id, floor, door, owner_dni) FROM stdin;
 -- Name: properties_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.properties_id_seq', 1, false);
+SELECT pg_catalog.setval('public.properties_id_seq', 182, true);
 
 
 --

@@ -97,7 +97,7 @@ COPY public.buildings (id, address_type, street_address, number, district, posta
 -- Name: buildings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.buildings_id_seq', 1, false);
+SELECT pg_catalog.setval('public.buildings_id_seq', 11, true);
 
 
 --

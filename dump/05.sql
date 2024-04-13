@@ -95,7 +95,7 @@ COPY public.announces (id, title, description, building_id, date, "time") FROM s
 -- Name: announces_id_seq; Type: SEQUENCE SET; Schema: public; Owner: renzobelon
 --
 
-SELECT pg_catalog.setval('public.announces_id_seq', 1, false);
+SELECT pg_catalog.setval('public.announces_id_seq', 19, true);
 
 
 --

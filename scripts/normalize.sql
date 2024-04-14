@@ -16,7 +16,7 @@ CREATE TABLE users(
     id SERIAL,
     person_dni VARCHAR(255) UNIQUE,
     username VARCHAR(255),
-    hash VARCHAR(255),
+    hash TEXT,
     is_validated BOOLEAN DEFAULT FALSE,
     is_system_admin BOOLEAN DEFAULT FALSE,
     portrait_url VARCHAR(255),

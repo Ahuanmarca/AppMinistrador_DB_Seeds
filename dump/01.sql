@@ -73,9 +73,9 @@ ALTER TABLE ONLY public.people ALTER COLUMN id SET DEFAULT nextval('public.peopl
 --
 
 COPY public.people (id, forename, surname, second_surname, email, phone_code, phone_number, birth, dni) FROM stdin;
-1	Carmen	Espinosa	Ortiz	carmenesp1990@gmail.com	34	963992134	1990-06-22	55921386C
+1	Alice	Espinosa	Ortiz	aliceesp1990@gmail.com	34	963992134	1990-06-22	55921386C
 2	Luz	Fernandez	García	luz_fernandez@hotmail.com	34	655267790	1987-10-19	88231154F
-3	Mikhail	Korolev	\N	mikkor@yahoo.com	34	967721031	1965-12-30	51802544N
+3	Bob	Korolev	\N	Bobkkor@yahoo.com	34	967721031	1965-12-30	51802544N
 4	Soledad	Molina	Rocha	somoro67@hotmail.com	34	772931647	1967-11-17	80038104J
 5	María del Mar	Pineda	Navarro	marimar.pineda@hotmail.com	34	790448213	1948-09-16	91975156L
 6	Milagros	Zuniga	Lucero	milagros.zuniga@yahoo.com	34	899216445	1994-11-09	58388741K

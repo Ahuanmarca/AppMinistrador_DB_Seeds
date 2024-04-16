@@ -80,31 +80,31 @@ COPY public.people (id, forename, surname, second_surname, email, phone_code, ph
 5	María del Mar	Pineda	Navarro	marimar.pineda@hotmail.com	34	790448213	1948-09-16	91975156L
 6	Milagros	Zuniga	Lucero	milagros.zuniga@yahoo.com	34	899216445	1994-11-09	58388741K
 7	Carlos	Castilla	Zamora	carcaza94@gmail.com	34	792261306	1994-05-02	02296421D
-8	Dolores	Mendizábal	Bonilla	dm.bonilla@mail.org	34	764298346	1985-05-19	92347502X
+8	Andrea	Mir	Olva	amirolba@mail.org	34	764298346	1985-05-19	92347502X
 9	Ulises	Portales	Quispe	up.quispe@mail.org	34	743456573	1988-01-17	29034509Q
 10	Martín	Maldonado	Castro	marmaca00@gmail.com	34	620773412	2000-02-07	59410465Q
-11	Antonio	Barajas	Arias	tonybarajas03@gmail.com	34	531009677	2003-07-23	93037013N
+11	Pablo	Jorda	\N	pablojorda90@gmail.com	34	531009677	2003-07-23	93037013N
 12	Cristian	García	Cantabria	crisgarcan93@gmail.com	34	948012377	1993-07-20	04265798B
 13	Miguel Ángel 	Ledesma	Anillo	miguelangel.ledesma@hotmail.com	34	666720412	1970-03-22	12199979C
-14	María 	Acosta	Clavero	maria_acosta70@hotmail.com	34	738202278	1972-08-11	14482182W
+14	Angélica	Rey	\N	angelicareyq@hotmail.com	34	738202278	1972-08-11	14482182W
 15	Luis 	Ledesma	Acosta	luisito_ledesma98@gmail.com	34	743535329	1998-06-30	47763259X
-16	Hans	Mueller	\N	hansmueller85@hotmail.com	34	662200403	1985-07-07	76641167S
+16	Renzo	Belon	\N	renzobelon@hotmail.com	34	662200403	1985-07-07	76641167S
 17	Katherine 	Bluer	\N	kateblue@hotmail.com	34	879111365	1988-12-06	48094905L
 18	Mateo	Ruiz	Trujillo	mateo.ruiz_trujillo@yahoo.com	34	744102977	1974-08-19	01436730N
 19	Ricardo	Rossi	\N	ricarossi99@gmail.com	34	899391048	1999-01-30	92074524G
 20	John	Doe	Cooper	john.doe@example.com	34	849127904	1970-08-12	12385025T
 21	Alice	Cooper	\N	alice.cooper@music.org	34	395018302	1960-05-03	10475049E
 22	Jefferson	Cooper	\N	jeffcooper90@gmail.com	34	608826576	1990-05-12	85851455E
-23	Germán	Tejada	Coronado	gt.coronado@mail.org	34	781938594	1990-05-14	43209548V
+23	Masanso	Tejada	\N	gt.coronado@mail.org	34	781938594	1990-05-14	43209548V
 24	Ana Lucía	Cornejo	Paredes	ac.paredes@mail.org	34	602888990	1991-02-12	97534485K
 25	Leonardo	Tejada	Cornejo	lt.lozano@mail.org	34	911800000	2001-04-23	84739289N
-26	Mario	Gonzaga	Silo	mario_gonzaga.silo@hotmail.es	34	797835500	1990-05-17	98842669P
+26	Carlos	Mateo	\N	carlosmateo.vae@hotmail.es	34	797835500	1990-05-17	98842669P
 27	Rebecca	Pines	\N	becca.pines@yahoo.com	34	230748797	1986-06-06	59662279A
-28	Arnold	Swchartz	\N	arnold_swchartz@yahoo.com	34	968400889	1986-02-02	31816363A
+28	Gustavo	Acc	\N	gustavoacc07@yahoo.com	34	968400889	1986-02-02	31816363A
 29	Inmaculada	Granell	Franco	inma_granell80@hotmail.com	34	681371795	1979-08-24	11166260J
 30	Corina	Valero	Granell	corina_valgra@gmail.com	34	520078058	1990-10-21	73044876G
 31	Esmeralda	Valero	Granell	esme_valgra@gmail.com	34	988846850	2000-09-09	26487326C
-32	Carolina	Ramirez	Serrano	carolramirez.serrano@hotmail.com	34	785657064	1959-12-03	36735743M
+32	Erika	Coronel	\N	ecoronel368@hotmail.com	34	785657064	1959-12-03	36735743M
 33	Joan	Roig	Casado	redjohn@hotmail.com	34	783357999	1983-09-14	56565155J
 34	Rosalia	Sumbiela	del Pino	rosalia_sumbiela@hotmail.com	34	245956519	1987-02-19	35164153M
 35	Ravi	Singh	\N	ravi_singh@yahoo.com	34	424649296	1994-09-12	62000855P

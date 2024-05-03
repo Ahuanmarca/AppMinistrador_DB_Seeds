@@ -26,11 +26,11 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.announces (
     id integer NOT NULL,
-    title character varying(255),
-    description text,
-    building_id integer,
-    date date,
-    "time" time without time zone
+    title character varying(255) NOT NULL,
+    description text NOT NULL,
+    building_id integer NOT NULL,
+    date date NOT NULL,
+    "time" time without time zone NOT NULL
 );
 
 

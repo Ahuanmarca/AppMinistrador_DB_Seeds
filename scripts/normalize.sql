@@ -4,6 +4,8 @@ CREATE TABLE people(
     surname VARCHAR(255) NOT NULL,
     second_surname VARCHAR(255),
     email VARCHAR(255),
+    -- phone can be null for people, but not for users
+    -- should users table have it's own phone field?
     phone_code VARCHAR(55),
     phone_number VARCHAR(255),
     birth DATE,
@@ -14,11 +16,11 @@ CREATE TABLE people(
 
 CREATE TABLE users(
     id SERIAL,
-    person_dni VARCHAR(255) UNIQUE,
-    username VARCHAR(255),
-    hash TEXT,
-    is_validated BOOLEAN DEFAULT FALSE,
-    is_system_admin BOOLEAN DEFAULT FALSE,
+    person_dni VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    hash TEXT NOT NULL,
+    is_validated BOOLEAN DEFAULT FALSE NOT NULL,
+    is_system_admin BOOLEAN DEFAULT FALSE NOT NULL,
     portrait_url VARCHAR(255),
     PRIMARY KEY (id)
 );
@@ -28,21 +30,21 @@ FOREIGN KEY (person_dni) REFERENCES people(dni);
 
 CREATE TABLE buildings(
     id SERIAL,
-    address_type VARCHAR(255),
-    street_address VARCHAR(255),
-    number VARCHAR(255),
-    district VARCHAR(255),
-    postal_code VARCHAR(255),
-    locality VARCHAR(255),
-    province VARCHAR(255),
-    country VARCHAR(255),
-    admin_dni VARCHAR(255),
-    president_dni VARCHAR(255),
-    build_year INTEGER,
-    floors INTEGER,
-    elevators INTEGER,
-    parking_slots INTEGER,
-    image_url VARCHAR(255),
+    address_type VARCHAR(255) NOT NULL,
+    street_address VARCHAR(255) NOT NULL,
+    number VARCHAR(255) NOT NULL,
+    district VARCHAR(255) NOT NULL,
+    postal_code VARCHAR(255) NOT NULL,
+    locality VARCHAR(255) NOT NULL,
+    province VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    admin_dni VARCHAR(255) NOT NULL,
+    president_dni VARCHAR(255) NOT NULL,
+    build_year INTEGER NOT NULL,
+    floors INTEGER NOT NULL,
+    elevators INTEGER NOT NULL,
+    parking_slots INTEGER NOT NULL,
+    image_url VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 ALTER TABLE buildings ADD CONSTRAINT fk_admin_dni
@@ -107,16 +109,16 @@ CREATE TABLE providers(
 
 CREATE TABLE incidences(
     id SERIAL,
-    title TEXT NOT NULL,
+    title TEXT NOT NULL NOT NULL,
     description TEXT,
     image_url TEXT,
-    user_dni VARCHAR(255),
-    building_id INTEGER,
+    user_dni VARCHAR(255) NOT NULL,
+    building_id INTEGER NOT NULL,
     provider_id INTEGER,
-    date DATE,
-    time TIME,
-    status VARCHAR(55),
-    category VARCHAR(55),
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    status VARCHAR(55) NOT NULL,
+    category VARCHAR(55) NOT NULL,
     PRIMARY KEY (id)
 );
 ALTER TABLE incidences ADD CONSTRAINT fk_user_dni
@@ -129,11 +131,11 @@ FOREIGN KEY (provider_id) REFERENCES providers(id);
 
 CREATE TABLE announces(
     id SERIAL,
-    title VARCHAR(255),
-    description TEXT,
-    building_id INTEGER,
-    date DATE,
-    time TIME,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    building_id INTEGER NOT NULL,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
     PRIMARY KEY (id)
 );
 ALTER TABLE announces ADD CONSTRAINT fk_building_id

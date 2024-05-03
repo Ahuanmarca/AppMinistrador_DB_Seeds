@@ -29,13 +29,13 @@ CREATE TABLE public.incidences (
     title text NOT NULL,
     description text,
     image_url text,
-    user_dni character varying(255),
-    building_id integer,
+    user_dni character varying(255) NOT NULL,
+    building_id integer NOT NULL,
     provider_id integer,
-    date date,
-    "time" time without time zone,
-    status character varying(55),
-    category character varying(55)
+    date date NOT NULL,
+    "time" time without time zone NOT NULL,
+    status character varying(55) NOT NULL,
+    category character varying(55) NOT NULL
 );
 
 

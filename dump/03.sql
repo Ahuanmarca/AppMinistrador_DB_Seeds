@@ -26,21 +26,21 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.buildings (
     id integer NOT NULL,
-    address_type character varying(255),
-    street_address character varying(255),
-    number character varying(255),
-    district character varying(255),
-    postal_code character varying(255),
-    locality character varying(255),
-    province character varying(255),
-    country character varying(255),
-    admin_dni character varying(255),
-    president_dni character varying(255),
-    build_year integer,
-    floors integer,
-    elevators integer,
-    parking_slots integer,
-    image_url character varying(255)
+    address_type character varying(255) NOT NULL,
+    street_address character varying(255) NOT NULL,
+    number character varying(255) NOT NULL,
+    district character varying(255) NOT NULL,
+    postal_code character varying(255) NOT NULL,
+    locality character varying(255) NOT NULL,
+    province character varying(255) NOT NULL,
+    country character varying(255) NOT NULL,
+    admin_dni character varying(255) NOT NULL,
+    president_dni character varying(255) NOT NULL,
+    build_year integer NOT NULL,
+    floors integer NOT NULL,
+    elevators integer NOT NULL,
+    parking_slots integer NOT NULL,
+    image_url character varying(255) NOT NULL
 );
 
 

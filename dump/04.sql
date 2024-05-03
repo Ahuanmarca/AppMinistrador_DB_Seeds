@@ -26,11 +26,11 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.users (
     id integer NOT NULL,
-    person_dni character varying(255),
-    username character varying(255),
-    hash text,
-    is_validated boolean DEFAULT false,
-    is_system_admin boolean DEFAULT false,
+    person_dni character varying(255) NOT NULL,
+    username character varying(255) NOT NULL,
+    hash text NOT NULL,
+    is_validated boolean DEFAULT false NOT NULL,
+    is_system_admin boolean DEFAULT false NOT NULL,
     portrait_url character varying(255)
 );
 
